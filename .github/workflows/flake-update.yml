@@ -37,12 +37,6 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git config --global pull.rebase false
 
-    - name: Setup cachix
-      uses: cachix/cachix-action@v17
-      with:
-        name: antares0982
-        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-
     - name: Nix flake update
       run: |
         nix flake update --commit-lock-file
